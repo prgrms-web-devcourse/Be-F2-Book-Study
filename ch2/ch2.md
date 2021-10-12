@@ -72,55 +72,9 @@ JVM : Java Virtual Machine / 자바 가상 기계
 
 ## 변수와 메모리 
 
-<div style="float:left;">
-  <img src="images/2-7.png" alt="2-7" style="float: left;"/>
-</div>  
-<div style="float:left;">
-  <img src="images/2-8.png" alt="2-8" style="float: left;"/>
-</div>
+<img src="images/2-7.png" alt="2-7" style="float: left; zoom: 50%"/>
 
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-<div style="float:left;">
-  <img src="images/2-9.png" alt="2-9" style="float: left;"/>
-</div>  
-<div style="float:left;">
-  <img src="images/2-10.png" alt="2-10" style="float: left;"/>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<img src="images/2-8.png" alt="2-8" style="float: left; zoom: 50%"/>
 
 
 
@@ -174,17 +128,7 @@ JVM : Java Virtual Machine / 자바 가상 기계
 
 #### 멀티스레드 & 멀티 프로세스
 
-<div style="float:left;">
-  <img src="images/2-11.png" alt="2-11" style="float: left;"/>
-</div>  
-<div style="float:left;">
-  <img src="images/2-12.png" alt="2-12" style="float: left;"/>
-</div>
-
-
-
-
-
+<img src="images/2-9.png" alt="2-9" style="float: left; zoom: 50%"/>
 
 
 - 멀티 스레드는 스택 영역을 분할해서 사용
