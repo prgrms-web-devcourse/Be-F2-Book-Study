@@ -31,11 +31,11 @@
 |chapter 2   자바와 절차적/ 구조적 프로그래밍|10월 12일 화요일|김선호|[정리본](https://github.com/prgrms-web-devcourse/Be-F2-Book-Study/blob/sunH0/3%EC%9E%A5/CH3%20%EC%9E%90%EB%B0%94%EC%99%80%20%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%20cad1d2e22d124c699af58ee4517716b1.md)|
 |chapter 3-1 자바와 객체 지향 (추상화: 모델링까지)|10월 15일 금요일|김명환|[정리본](https://github.com/prgrms-web-devcourse/Be-F2-Book-Study/blob/samkimuel/ch3.md)|
 |chapter 3-2 자바와 객체 지향 (~ 끝)|10월 19일 화요일|이수형|[정리본](https://github.com/LSH0809/Be-F2-Book-Study/blob/main/%EC%A0%95%EB%A6%AC/chapter03-2.md)|
-|chapter 4   자바가 확장한 객체 지향|11월 09일 화요일|김부희||
+|chapter 4   자바가 확장한 객체 지향|11월 09일 화요일|김부희|[정리본](https://github.com/prgrms-web-devcourse/Be-F2-Book-Study/blob/buri-1029/ch4/ch4.md)|
 |chapter 5   객체 지향 설계 5원칙|11월 12일 금요일|박건희||
-|chapter 6   스프링이 사랑항 디자인 패턴|11월 16일 화요일|||
-|chapter 7-1 스프링 삼각형과 설정 정보 (IoC/DI)|11월 19일 금요일|||
-|chapter 7-2 스프링 삼각형과 설정 정보 (AOP) |11월 23일 화요일||||
+|chapter 6   스프링이 사랑항 디자인 패턴|11월 16일 화요일|김선호||
+|chapter 7-1 스프링 삼각형과 설정 정보 (IoC/DI)|11월 19일 금요일|김부희||
+|chapter 7-2 스프링 삼각형과 설정 정보 (AOP) |11월 23일 화요일|김명환||
 
 <br/>
 
