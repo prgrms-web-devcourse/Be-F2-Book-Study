@@ -14,32 +14,29 @@
 
 디자인 패턴은 '상속'(extends), '인터페이스'(interface/ implements), '합성'(객체를 속성으로 사용)을 이용한다. 그러다 보니 여러 디자인 패턴이 비슷하게 보일 수 있다!
 
-<details>
-<summary>❗상속(is-a) vs 합성(has-a)</summary>
-<div markdown="1"> 
+❗상속(is-a) vs 합성(has-a)
     
-    **상속의 단점**
+   **상속의 단점**
     
    1. 캡슐화를 위반 할 수 있다.
    2. 상위 클래스 변경이 어렵다.
    3. 설계가 유연하지 않다. → 클래스 폭발 또는 조합의 폭발 문제
    4. 상속 관계는 컴파일 타임에 결정되고 고정되기 때문에 코드를 실행하는 도중에 변경할 수 없다.
     
-    **합성이란?**
+   **합성이란?**
     
-    객체가 다른 객체의 참조를 얻는 즉, 속성으로 사용하는 방식으로 **런타임시에 동적으로** 이루어진다.
+   객체가 다른 객체의 참조를 얻는 즉, 속성으로 사용하는 방식으로 **런타임시에 동적으로** 이루어진다.
     
-    합성은 내부에 포함되는 객체의 구현이 아닌 인터페이스만을 바라보게 됨으로써 캡슐화가 잘 이뤄질 수 있다.
+   합성은 내부에 포함되는 객체의 구현이 아닌 인터페이스만을 바라보게 됨으로써 캡슐화가 잘 이뤄질 수 있다.
     
-    **합성의 단점**
+   **합성의 단점**
     
-    객체 간의 관계가 수직이 아닌 수평 관계로 이루어져 객체나 메서드 명이 명확하지 않으면 코드가 가독성이 떨어지고 이해하기 어려워 질 수 있다. **따라서** 합성을 구현할 때는 그 용도에 따라 클래스들을 패키지로 적절히 구분하고 각각의 사용 용도가 명확하게 드러나도록 인터페이스를 설계해야 한다.
+   객체 간의 관계가 수직이 아닌 수평 관계로 이루어져 객체나 메서드 명이 명확하지 않으면 코드가 가독성이 떨어지고 이해하기 어려워 질 수 있다. **따라서** 합성을 구현할 때는 그 용도에 따라 클래스들을 패키지로 적절히 구분하고 각각의 사용 용도가 명확하게 드러나도록 인터페이스를 설계해야 한다.
     
-    **결론**
+   **결론**
     
-    is-a 관계인지 has-a 관계인지(단순히 코드 재사용) 명확하게 파악하자! 그리고 인터페이스가 단일 책임을 지키는지 분리가 필요한지 고려해서 설계하자!
-</div>
-</details>
+   is-a 관계인지 has-a 관계인지(단순히 코드 재사용) 명확하게 파악하자! 그리고 인터페이스가 단일 책임을 지키는지 분리가 필요한지 고려해서 설계하자!
+
     
 
 # 🔌 Adapter Pattern (어뎁터 패턴)
@@ -74,45 +71,43 @@
     
     (흐름) →  **Client 는 Target Interface 를 통해 Adapter에 요청을 보낸다. Adapter는 Client 의 요청을 Adaptee 가 이해할 수 있는 방법으로 전달하고, 처리는 Adaptee 에서 이루어진다.**
     
-<details>
-<summary>코드</summary>
-<div markdown="1"> 
+**📍 코드**
     
-    **배경 상황**
+   **배경 상황**
     
-    학생 A는 새로운 집으로 이사를 갔다. 새 집은 110V의 콘센트만 있었고  A의 핸드폰은 220V로 충전을 할 수 있다. 그렇다고 집의 모든 콘센트를 220V로 바꿀수 없으니 220v를 110v로 바꿔주는 어뎁터를 사용하여 핸드폰을 충전하기로 했다
+   학생 A는 새로운 집으로 이사를 갔다. 새 집은 110V의 콘센트만 있었고  A의 핸드폰은 220V로 충전을 할 수 있다. 그렇다고 집의 모든 콘센트를 220V로 바꿀수 없으니 220v를 110v로 바꿔주는 어뎁터를 사용하여 핸드폰을 충전하기로 했다
     
-    ```java
-    public class NewHouse extends House{  // Adaptee
+   ```java
+   public class NewHouse extends House{  // Adaptee
     
-        @Override
-        public void charging(int volt) {
-            if (volt == 110) {
+       @Override
+       public void charging(int volt) {
+           if (volt == 110) {
                 System.out.println("충전이 시작됩니다.");
-            } else {
-                System.out.println("충전할 수 없습니다.");
-            }    
-    		}   }
-    ```
+           } else {
+               System.out.println("충전할 수 없습니다.");
+           }    
+    	}   }
+   ```
     
-    ```java
-    public interface Adapter{  // Target
+   ```java
+   public interface Adapter{  // Target
     
-        public void charging();
-        public int changeVolt();
+       public void charging();
+       public int changeVolt();
     
-    }
-    ```
+   }
+   ```
     
-    ```java
-    public class AdapterImpl implements Adapter{  //Adapter
+   ```java
+   public class AdapterImpl implements Adapter{  //Adapter
     
-        private House house;
-        private final int volt = 220;
-    
-        public AdapterImpl(House house) {
-            this.house = house;
-        }
+       private House house;
+       private final int volt = 220;
+   
+       public AdapterImpl(House house) {
+           this.house = house;
+       }
     
         @Override
         public void charging() {
@@ -127,9 +122,9 @@
         }
     
     }
-    ```
+   ```
     
-    ```java
+   ```java
     public class Person { // Client
     
         public static void main(String[] args) {
@@ -139,9 +134,8 @@
         }
     
     }
-    ```
-</div>
-</details>
+   ```
+
     
 
 **사용 이유**
@@ -174,25 +168,23 @@
     - **RealSubject**
         - 실질적으로 요청에 대해 주된 기능을 수행하는 객체
 
-<details>
-<summary>코드</summary>
-<div markdown="1"> 
+**📍 코드**
     
-    ```java
+   ```java
     public interface IService { // Subject
     	String runSomething();
     }
-    ```
+   ```
     
-    ```java
+   ```java
     public class Service implements IService { // **RealSubject**
     	public String runSomething() {
     		return "서비스 짱!!!";
     	}
     }
-    ```
+   ```
     
-    ```java
+   ```java
     public class Proxy implements IService { // Proxy
     	IService service1;
     
@@ -203,9 +195,9 @@
     		return service1.runSomething();
     	}
     }
-    ```
+   ```
     
-    ```java
+   ```java
     public class ClientWithProxy {
     	public static void main(String[] args) {
     		// 프록시를 이용한 호출
@@ -213,9 +205,8 @@
     		System.out.println(proxy.runSomething());
     	}
     }
-    ```
-</div>
-</details>    
+   ```
+  
 
 **사용 이유**
 
@@ -231,25 +222,23 @@
 > 메서드 호출의 반환값에 변화를 주기 위해 중간에 장식자를 두는 패턴
 
 
-<details>
-<summary>코드</summary>
-<div markdown="1"> 
+**📍 코드**
     
-    ```java
+   ```java
     public interface IService {
     	public abstract String runSomething();
     }
-    ```
+   ```
     
-    ```java
+   ```java
     public class Service implements IService {
     	public String runSomething() {
     		return "서비스 짱!!!";
     	}
     }
-    ```
+   ```
     
-    ```java
+   ```java
     public class Decoreator implements IService {
     	IService service;
     
@@ -260,18 +249,17 @@
     		return "정말" + service.runSomething();
     	}
     }
-    ```
+   ```
     
-    ```java
+   ```java
     public class ClientWithDecolator  {
     	public static void main(String[] args) {
     		IService decoreator = new Decoreator();
     	 	System.out.println(decoreator.runSomething());
     	}
     }
-    ```
-</div>
-</details>
+   ```
+
 
 데코레이터 패턴과 프록시 패턴은 동일한 구조를 갖는다. 그렇다면 **차이점은?? ** 
 
@@ -324,13 +312,11 @@
     
     → 내부 속성을 변경하기 어렵고 자식 클래스를 만들기 어렵기 때문에 유연성이 떨어진다.
     
-<details>
-<summary>코드</summary>
-<div markdown="1"> 
+**📍 코드**
     
-    - **Eager Initialization(이른 초기화, Thread-safe) : 정적 바인딩(static binding)**
+   - **Eager Initialization(이른 초기화, Thread-safe) : 정적 바인딩(static binding)**
     
-    ```java
+   ```java
     public class Singleton {
         // Eager Initialization
         private static Singleton uniqueInstance = new Singleton();
@@ -340,11 +326,11 @@
         public static Singleton getInstance() {
           return uniqueInstance; 
         }
-    ```
+   ```
     
-    - **Lazy Initialization. Double Checking Locking(DCL, Thread-safe)**
+   - **Lazy Initialization. Double Checking Locking(DCL, Thread-safe)**
     
-    ```java
+   ```java
     public class Singleton {
         private volatile static Singleton uniqueInstance;
     
@@ -362,16 +348,16 @@
           return uniqueInstance;
         }
     }
-    ```
-    → 인스턴스를 생성하지 않을 경우 동기화 블록을 거치지 않기 때문에 성능의 감소를 방지 할 수 있다.
+   ```
+   → 인스턴스를 생성하지 않을 경우 동기화 블록을 거치지 않기 때문에 성능의 감소를 방지 할 수 있다.
     
-    ❗ volatile 란 ?
+   ❗ volatile 란 ?
     
-    Java 변수를 Main Memory에 read and write 하겠다는 것을 명시한다. 변수를 Read 할 때 CPU cache에 저장된 값이 아닌 Main Memory에서 읽기 때문에 변수 불일치 문제를 방지할 수 있다.
+   Java 변수를 Main Memory에 read and write 하겠다는 것을 명시한다. 변수를 Read 할 때 CPU cache에 저장된 값이 아닌 Main Memory에서 읽기 때문에 변수 불일치 문제를 방지할 수 있다.
     
-    - **Lazy Initailization. Enum(열거 상수 클래스, Thread-safe)**
-    
-    ```java
+   - **Lazy Initailization. Enum(열거 상수 클래스, Thread-safe)**
+   
+   ```java
     public enum Singleton {
     	INSTANCE;
       
@@ -379,18 +365,18 @@
     		return INSTANCE;
     	}
     }
-    ```
+   ```
     
-    → enum 인스턴스의 생성은 기본적으로 Thread-safe하고 reflection 공격에 안전하다.
+   → enum 인스턴스의 생성은 기본적으로 Thread-safe하고 reflection 공격에 안전하다.
     
-    ❗ reflection 공격 : 네트웍이 감당할 수 없는 트래픽의 양을 생성하여 정상적인 트래픽을 처리하지 못하도록 하는 것
+   ❗ reflection 공격 : 네트웍이 감당할 수 없는 트래픽의 양을 생성하여 정상적인 트래픽을 처리하지 못하도록 하는 것
     
-    - **LazyHolder 방식을 사용한 Lazy initialization : 가장 많이 사용되는 방식?**
+   - **LazyHolder 방식을 사용한 Lazy initialization : 가장 많이 사용되는 방식?**
         
         → androlid Context 의존성이 있는 환경일 경우 유리
         
     
-    ```java
+   ```java
     public class Singleton {
     
         private static class InnerInstanceClass {
@@ -407,11 +393,10 @@
         	System.out.println("**LazyHolder 방식을 사용한** singleton pattern");
         }
     }
-    ```
+   ```
     
-    → static 멤버 클래스일지라도 컴파일 시점에서 초기화 되는 것이 아니고 getInstance() 메소드를 호출할 때 즉 런타임 시점에 초기화 되며 Thread-safe하다.
-</div>
-</details>    
+   → static 멤버 클래스일지라도 컴파일 시점에서 초기화 되는 것이 아니고 getInstance() 메소드를 호출할 때 즉 런타임 시점에 초기화 되며 Thread-safe하다.
+   
 
 ## Template Method Pattern (템플릿 메서드 패턴)
 ---
@@ -428,11 +413,9 @@
 - 선택적으로 오버라이딩할 수 있는 훅 (Hook) 메서드
 
 
-<details>
-<summary>코드</summary>
-<div markdown="1"> 
+**📍 코드**
     
-    ```java
+   ```java
     public abstract class Animal {
     	// 템플릿 메서드
     	public void playWithOwner() {
@@ -450,9 +433,9 @@
     		System.out.println("꼬리 살랑 살랑~");
     	}
     }
-    ```
+   ```
     
-    ```java
+   ```java
     
     public abstract class Animal {
     	// 템플릿 메서드
@@ -472,9 +455,9 @@
     	}
     }
     
-    ```
+   ```
     
-    ```java
+   ```java
     public class Dog extends Animal {
     	@Override
     	// 추상 메서드 오버라이딩
@@ -488,9 +471,9 @@
     		System.out.println("멍! 멍!~ 꼬리 살랑 살랑~");
     	}
     }
-    ```
+   ```
     
-    ```java
+   ```java
     public class Driver {
     	public static void main(String[] args) {
     		Animal bolt = new Dog();
@@ -504,9 +487,8 @@
     		kitty.playWithOwner();
     	}
     }
-    ```
-</div>
-</details>
+   ```
+
 
 **클래스 다이어 그램**
 
@@ -545,17 +527,15 @@
 
 ![전략패턴_Diagram](./img/Untitled 1.png)
 
-<details>
-<summary>코드</summary>
-<div markdown="1"> 
+**📍 코드**
     
-    ```java
+   ```java
     public interface Strategy {
     	public abstract void runStrategy();
     }
     ```
     
-    ```java
+   ```java
     public class StrategyGun implements Strategy {
     	@Override
     	public void runStrategy() {
@@ -576,9 +556,9 @@
     		System.out.println("슝.. 쐐액.. 쇅, 최종 병기");
     	}
     }
-    ```
+   ```
     
-    ```java
+   ```java
     public class Soldier {  // Context
     	void runContext(Strategy strategy) {
     		System.out.println("전투 시작");
@@ -586,9 +566,9 @@
     		System.out.println("전투 종료");
     	}
     }
-    ```
+   ```
     
-    ```java
+   ```java
     public class Client {
     	public static void main(String[] args) {
     		Strategy strategy = null;
@@ -611,9 +591,8 @@
     		rambo.runContext(strategy);
     	}
     }
-    ```
-</div>
-</details>  
+   ```
+
 
 **사용 이유**
 
@@ -644,17 +623,15 @@
 
 → DI(의존성 주입)에서 사용
 
-<details>
-<summary>코드</summary>
-<div markdown="1">
+**📍 코드**
     
-    ```java
+   ```java
     public interface Strategy {
     	public abstract void runStrategy();
     }
-    ```
+   ```
     
-    ```java
+   ```java
     public class Soldier {
     	void runContext(String weaponSound) {
     		System.out.println("전투 시작");
@@ -671,9 +648,9 @@
     		};
     	}
     }
-    ```
+   ```
     
-    ```java
+   ```java
     public class Client {
     	public static void main(String[] args) {
     		Soldier rambo = new Soldier();
@@ -689,8 +666,7 @@
     		rambo.runContext("도끼! 독독..도도독 독끼!");
     	}
     }
-    ```
-</div>
-</details>
+   ```
+
 
 ❗ 제네릭을 람다를 활용하면 더 효율이 좋을 것 같다.
