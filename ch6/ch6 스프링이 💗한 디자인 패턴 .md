@@ -14,14 +14,16 @@
 
 디자인 패턴은 '상속'(extends), '인터페이스'(interface/ implements), '합성'(객체를 속성으로 사용)을 이용한다. 그러다 보니 여러 디자인 패턴이 비슷하게 보일 수 있다!
 
-- ❗상속(is-a) vs 합성(has-a)
+<details>
+<summary>❗상속(is-a) vs 합성(has-a)</summary>
+<div markdown="1"> 
     
     **상속의 단점**
     
-    1. 캡슐화를 위반 할 수 있다.
-    2. 상위 클래스 변경이 어렵다.
-    3. 설계가 유연하지 않다. → 클래스 폭발 또는 조합의 폭발 문제
-    4. 상속 관계는 컴파일 타임에 결정되고 고정되기 때문에 코드를 실행하는 도중에 변경할 수 없다.
+   1. 캡슐화를 위반 할 수 있다.
+   2. 상위 클래스 변경이 어렵다.
+   3. 설계가 유연하지 않다. → 클래스 폭발 또는 조합의 폭발 문제
+   4. 상속 관계는 컴파일 타임에 결정되고 고정되기 때문에 코드를 실행하는 도중에 변경할 수 없다.
     
     **합성이란?**
     
@@ -36,9 +38,12 @@
     **결론**
     
     is-a 관계인지 has-a 관계인지(단순히 코드 재사용) 명확하게 파악하자! 그리고 인터페이스가 단일 책임을 지키는지 분리가 필요한지 고려해서 설계하자!
+</div>
+</details>
     
 
 # 🔌 Adapter Pattern (어뎁터 패턴)
+---
 
 쉽게 말하면 변환기 (converter), 즉 휴대폰 충전기와 같이
 
@@ -69,8 +74,9 @@
     
     (흐름) →  **Client 는 Target Interface 를 통해 Adapter에 요청을 보낸다. Adapter는 Client 의 요청을 Adaptee 가 이해할 수 있는 방법으로 전달하고, 처리는 Adaptee 에서 이루어진다.**
     
-
-- 코드
+<details>
+<summary>코드</summary>
+<div markdown="1"> 
     
     **배경 상황**
     
@@ -134,6 +140,8 @@
     
     }
     ```
+</div>
+</details>
     
 
 **사용 이유**
@@ -141,6 +149,7 @@
 기존 코드를 변화해서 호출해야 하는 경우에 기존 코드를 변경하는 것은 엄청난 비용과 위험을 동반하기 때문에 어댑터 패턴을 사용하여 새 코드를 효율적으로 사용하고 유지 보수 할 수 있다.
 
 ## 👥 Proxy Pattern (프록시 패턴)
+---
 
 쉽게 말해 대리자 / 대변인 으로,
 
@@ -151,7 +160,7 @@
 
 - **구조 & 다이어그램**
     
-    ![     출처 : [https://ko.wikipedia.org/wiki/프록시_패턴](https://ko.wikipedia.org/wiki/%ED%94%84%EB%A1%9D%EC%8B%9C_%ED%8C%A8%ED%84%B4)](ch6%20%E1%84%89%E1%85%B3%E1%84%91%E1%85%B3%E1%84%85%E1%85%B5%E1%86%BC%E1%84%8B%E1%85%B5%20%F0%9F%92%97%E1%84%92%E1%85%A1%E1%86%AB%20%E1%84%83%E1%85%B5%E1%84%8C%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AB%20%E1%84%91%E1%85%A2%E1%84%90%E1%85%A5%E1%86%AB%20e43a98c52a554db99da17bbbee25702f/Proxy_pattern_diagram..png)
+    ![](./img/Proxy_pattern_diagram..png)
     
          출처 : [https://ko.wikipedia.org/wiki/프록시_패턴](https://ko.wikipedia.org/wiki/%ED%94%84%EB%A1%9D%EC%8B%9C_%ED%8C%A8%ED%84%B4)
     
@@ -165,7 +174,9 @@
     - **RealSubject**
         - 실질적으로 요청에 대해 주된 기능을 수행하는 객체
 
-- **코드**
+<details>
+<summary>코드</summary>
+<div markdown="1"> 
     
     ```java
     public interface IService { // Subject
@@ -203,7 +214,8 @@
     	}
     }
     ```
-    
+</div>
+</details>    
 
 **사용 이유**
 
@@ -214,14 +226,14 @@
 가상 프록시와 보호 프록시, 원격 프록시, 캐싱프록시 등 다양한 종류가 있다.
 
 ## 🎨 Decorator Pattern (데코레이터 패턴)
+---
 
 > 메서드 호출의 반환값에 변화를 주기 위해 중간에 장식자를 두는 패턴
-> 
-- 코드
 
-데코레이터 패턴과 프록시 패턴은 동일한 구조를 갖는다. 그렇다면 차이점은??
 
-- 코드
+<details>
+<summary>코드</summary>
+<div markdown="1"> 
     
     ```java
     public interface IService {
@@ -258,12 +270,14 @@
     	}
     }
     ```
-    
+</div>
+</details>
+
+데코레이터 패턴과 프록시 패턴은 동일한 구조를 갖는다. 그렇다면 **차이점은?? ** 
 
 **Decorator VS Proxy VS Adaptor**
 
-> 의도와 목적의 차이점!!
-> 
+'의도와 목적의 차이점!!'
 
 **데코레이터는** 중간에서 책임(기능) 추가를 위해 객체를 감싸서 새로운 행동을 추가하기 위한 용도이고, **프록시는** 중간에서 기능의 추가가 아닌 접근 제어와 같은 추가적인 컨트롤을 제공한다고 볼 수 있다.
 
@@ -271,7 +285,8 @@
 
 ❗프록시 패턴에서는 Wrapper Class와 Real Class의 관계가 컴파일타임에 정해집니다. 반면 데코레이터 패턴에서는 런타임에 정해지도록 되어있습니다.
 
-## Singleton Pattern (싱글톤 패턴)
+##🚽 Singleton Pattern (싱글톤 패턴)
+---
 
 > "클래스의 인스턴스, 즉 객체를 하나만 만들어 공용으로 재사용하는 패턴"
 > 
@@ -309,7 +324,10 @@
     
     → 내부 속성을 변경하기 어렵고 자식 클래스를 만들기 어렵기 때문에 유연성이 떨어진다.
     
-- 코드
+<details>
+<summary>코드</summary>
+<div markdown="1"> 
+    
     - **Eager Initialization(이른 초기화, Thread-safe) : 정적 바인딩(static binding)**
     
     ```java
@@ -345,7 +363,6 @@
         }
     }
     ```
-    
     → 인스턴스를 생성하지 않을 경우 동기화 블록을 거치지 않기 때문에 성능의 감소를 방지 할 수 있다.
     
     ❗ volatile 란 ?
@@ -393,9 +410,11 @@
     ```
     
     → static 멤버 클래스일지라도 컴파일 시점에서 초기화 되는 것이 아니고 getInstance() 메소드를 호출할 때 즉 런타임 시점에 초기화 되며 Thread-safe하다.
-    
+</div>
+</details>    
 
 ## Template Method Pattern (템플릿 메서드 패턴)
+---
 
 > "상위 클래스의 견본 메서드에서 하위 클래스가 오버라이딩한 메서드를 호출하는 패턴"
 > 
@@ -408,7 +427,10 @@
 - 하위 클래스에 오버라이딩을 강제하는 추상 메서드
 - 선택적으로 오버라이딩할 수 있는 훅 (Hook) 메서드
 
-- 코드
+
+<details>
+<summary>코드</summary>
+<div markdown="1"> 
     
     ```java
     public abstract class Animal {
@@ -483,15 +505,17 @@
     	}
     }
     ```
-    
+</div>
+</details>
 
 **클래스 다이어 그램**
 
-![Untitled](ch6%20%E1%84%89%E1%85%B3%E1%84%91%E1%85%B3%E1%84%85%E1%85%B5%E1%86%BC%E1%84%8B%E1%85%B5%20%F0%9F%92%97%E1%84%92%E1%85%A1%E1%86%AB%20%E1%84%83%E1%85%B5%E1%84%8C%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AB%20%E1%84%91%E1%85%A2%E1%84%90%E1%85%A5%E1%86%AB%20e43a98c52a554db99da17bbbee25702f/Untitled.png)
+![TempleteMethodPattern Class Diagram](./img/Untitled.png)
 
 → **의존 역전 원칙(DIP)을 활용**
 
 ## Factory Method Pattern (팩터리 메서드 패턴)
+---
 
 > 하위 클래스에서 팩터리 메서드를 오버라이딩해서 객체를 반환하는 패턴
 > 
@@ -519,9 +543,11 @@
 - 전략 객체를 사용하는 **컨텍스트**
 - 전략 객체를 생성해 컨텍스트에 주입하는 **클라이언트**
 
-![Untitled](ch6%20%E1%84%89%E1%85%B3%E1%84%91%E1%85%B3%E1%84%85%E1%85%B5%E1%86%BC%E1%84%8B%E1%85%B5%20%F0%9F%92%97%E1%84%92%E1%85%A1%E1%86%AB%20%E1%84%83%E1%85%B5%E1%84%8C%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AB%20%E1%84%91%E1%85%A2%E1%84%90%E1%85%A5%E1%86%AB%20e43a98c52a554db99da17bbbee25702f/Untitled%201.png)
+![전략패턴_Diagram](./img/Untitled 1.png)
 
-- 코드
+<details>
+<summary>코드</summary>
+<div markdown="1"> 
     
     ```java
     public interface Strategy {
@@ -586,7 +612,8 @@
     	}
     }
     ```
-    
+</div>
+</details>  
 
 **사용 이유**
 
@@ -606,6 +633,7 @@
 또한, **단일 상속만이 가능하다는 제한**이 있는 템플릿 메서드 패턴 보다는 전략 패턴이 더 많이 활용된다.
 
 ## Template Callback Pattern (템플릿 콜백 패턴)
+---
 
 > 전략패턴을 변형하여 전략을 익명 내부 클래스로 구현한 패턴
 > 
@@ -616,7 +644,9 @@
 
 → DI(의존성 주입)에서 사용
 
-- 코드
+<details>
+<summary>코드</summary>
+<div markdown="1">
     
     ```java
     public interface Strategy {
@@ -660,6 +690,7 @@
     	}
     }
     ```
-    
+</div>
+</details>
 
-❗ 제네릭을 람다를 활용
+❗ 제네릭을 람다를 활용하면 더 효율이 좋을 것 같다.
