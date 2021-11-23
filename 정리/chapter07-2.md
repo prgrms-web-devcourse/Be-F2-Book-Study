@@ -71,7 +71,7 @@ ___
             1. execution : 가장 정교한 pointcut을 만들어낼 수 있습니다.
             2. within : 타입 패턴 내에 해당하는 모든 것들을 pointcut으로 설정합니다.
             3. bean : bean이름으로 pointcut을 설정합니다.
-                - (추가 표현식)[https://sa1341.github.io/2019/05/25/%EC%8A%A4%ED%94%84%EB%A7%81-AOP-%EA%B0%9C%EB%85%90-%EB%B0%8F-Proxy%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EA%B5%AC%EB%8F%99%EC%9B%90%EB%A6%AC/]
+                - [추가 표현식](https://sa1341.github.io/2019/05/25/%EC%8A%A4%ED%94%84%EB%A7%81-AOP-%EA%B0%9C%EB%85%90-%EB%B0%8F-Proxy%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EA%B5%AC%EB%8F%99%EC%9B%90%EB%A6%AC/)
         - ex)
             - execution(public * * (..))
                 - 모든 public 메소드에서 실행
@@ -98,3 +98,8 @@ ___
         2. 스프링 AOP는 프록시 기반이다.
         3. 스프링 AOP는 런타임 기반이다.
     
+- ### PSA ###
+    - PSA
+        - 일관성 있는 서비스 추상화를 의미한다.
+            - 서비스 추상화란 추상화 계층을 사용하여 어떠한 기술을 내부에 숨기고 개발자에게 편의성을 제공해주는 것을 의미합니다.
+            - [추가정보](https://sabarada.tistory.com/127)
