@@ -34,8 +34,8 @@
 |chapter 4   자바가 확장한 객체 지향|11월 09일 화요일|김부희|[정리본](https://github.com/prgrms-web-devcourse/Be-F2-Book-Study/blob/buri-1029/ch4/ch4.md)|
 |chapter 5   객체 지향 설계 5원칙|11월 12일 금요일|박건희||
 |chapter 6   스프링이 사랑항 디자인 패턴|11월 16일 화요일|김선호|[정리본](https://github.com/prgrms-web-devcourse/Be-F2-Book-Study/blob/sunH0/ch6/%5Bch6%5D%EC%8A%A4%ED%94%84%EB%A7%81%EC%9D%B4%20%F0%9F%92%97%ED%95%9C%20%EB%94%94%EC%9E%90%EC%9D%B8%20%ED%8C%A8%ED%84%B4%20.md)|
-|chapter 7-1 스프링 삼각형과 설정 정보 (IoC/DI)|11월 19일 금요일|김부희||
-|chapter 7-2 스프링 삼각형과 설정 정보 (AOP) |11월 23일 화요일|김명환||
+|chapter 7-1 스프링 삼각형과 설정 정보 (IoC/DI)|11월 19일 금요일|김부희|[정리본](https://github.com/buri-1029/Be-F2-Book-Study/blob/buri/ch7-1/ch7/ch7-1.md)|
+|chapter 7-2 스프링 삼각형과 설정 정보 (AOP) |11월 23일 화요일|김명환|[정리본](https://github.com/samkimuel/Be-F2-Book-Study/blob/samkimuel/ch7-2/ch7-2.md)|
 
 <br/>
 
